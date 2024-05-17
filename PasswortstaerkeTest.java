@@ -6,6 +6,10 @@ public class PasswortstaerkeTest {
         int passwordLength = Passwortstaerke.zeichenZaehlen(password);
         int character = Passwortstaerke.zeichenZaehlenSonderzeichen(password);
         int words = Passwortstaerke.woerterZaehlen(password);
-        JOptionPane.showMessageDialog(null, "Anzahl der Zeichen: " + passwordLength + "\nAnzahl der Sonderzeichen: " + character + "\nAnzahl der Woerter: " + words);
+        int staerke = Passwortstaerke.passwortstaerke(password);
+        JOptionPane.showMessageDialog(null, "Anzahl der Zeichen: " + passwordLength + 
+                                                            "\nAnzahl der Sonderzeichen: " + character + 
+                                                            "\nAnzahl der Woerter: " + words + 
+                                                            "\nPasswortstaerke: " + staerke);
     }
 }

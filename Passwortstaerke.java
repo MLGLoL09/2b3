@@ -1,9 +1,24 @@
+/**
+ * Ueberprueft wie lang das Passwort ist, wie woerter es hat, wie lang es ist und wie stark es ist
+ * @author Sebastian Weigl
+ * @version 05-20-2024
+ */
+
 public class Passwortstaerke {
+    /**
+     * ueberpueft wie lang das Passwort ist 
+     * @param text uebernimmt das Passwort
+     * @return gibt die passwortlaenge zurueck
+     */
     public static int zeichenZaehlen(String text) {
         int length = text.length();
         return length;
-    }
-
+    }   
+    /**
+     * ueberfrueft wie viele Sonderzeichen das Passwort hat
+     * @param text uebernimmt das Passwort
+     * @return gibt zurueck wie viele Sonderzeichen das Passwort hat
+     */
     public static int zeichenZaehlenSonderzeichen(String text) {
         char zeichen;
         int character = 0;
@@ -16,7 +31,11 @@ public class Passwortstaerke {
 
         return character;
     }
-
+    /**
+     * zaehlt wie  viele woerter das Passwort hat
+     * @param text uebernimmt das Passwort
+     * @return gibt zurueck wie viele woerter das Passwort hat
+     */
     public static int woerterZaehlen(String text) {
         int words = 0;
         boolean isWord = false;
@@ -28,17 +47,22 @@ public class Passwortstaerke {
             } else if (!Character.isLetterOrDigit(text.charAt(i)) && isWord) {
                 words++;
                 isWord = false;
-            } else if (Character.isLetterOrDigit(text.charAt(i)) && i == endOfLine) {
+            } else {
                 words++;
             }
         }
         return words;
     }
-
+    /**
+     * Rechnet sich die Passwortstaerke aus
+     * @param text uebernimmt das Passwort
+     * @return gibt die Passwortstaerke zurueck
+     */
     public static int passwortstaerke(String text) {
         int length = zeichenZaehlen(text);
         int zeichen = zeichenZaehlenSonderzeichen(text);
         int woerter = woerterZaehlen(text);
-        return length + zeichen + woerter;
+        int staerke = length + zeichen + woerter;
+        return staerke;
     }
 }
